@@ -207,6 +207,20 @@ FCA Consumer Duty (PRIN 2A.9) requires firms to regularly evidence customer outc
 
 A team using all three has a complete, auditable, PRA-aligned pricing model governance workflow in Python.
 
+## Performance
+
+No formal benchmark. This is a governance library — computational cost is not the relevant metric. All operations are in-memory JSON manipulation and string rendering.
+
+| Operation | Time |
+|-----------|------|
+| RiskTierScorer.score() | < 1ms |
+| ModelInventory.register() | < 10ms |
+| ModelInventory.list() — 100 models | < 50ms |
+| GovernanceReport HTML generation | < 500ms |
+| GovernanceReport JSON generation | < 100ms |
+
+The operational cost that matters is the time a senior actuary spends assembling the MRC pack. Before this library: 2–4 hours per model (pulling validation results, updating the Excel scorecard, drafting the Word pack). After: 5–10 minutes (update the ModelCard fields, run GovernanceReport). The library's purpose is to make the governance workflow repeatable and auditable, not to run faster than a spreadsheet.
+
 ## Licence
 
 MIT
